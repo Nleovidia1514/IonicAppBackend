@@ -34,7 +34,19 @@ const imageSchema = new Schema({
         type: Date, 
         default: Date.now(),
         required: true
-    }
+    },
+    likes: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+    comments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Comment'
+        }
+    ]
 });
 
 module.exports = model('Image', imageSchema);
